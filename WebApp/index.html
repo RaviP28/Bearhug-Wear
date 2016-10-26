@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css"/>
+        <link rel="stylesheet" href="css/site.css" type="text/css" />
+            <title>BEARHUG Wear</title>
+    </head>
+    <body ng-controller="myController">
+
+        <div ng-repeat="product in model">
+            <li ng-repeat="product in store.products | orderBy: '-name'"></li>
+            <h1> {{product.name}}</h1>
+            <h2> {{product.price | currency}}</h2>
+
+            <div>
+                <img ng-repeat="image in product.images" ng-src="{{image.thumb}}" />
+            </div>
+            <product-title></product-title>
+            <h3>{{product-price | currency}}</h3>
+
+            <section ng-controller="PanelController as panel">
+                <ul class="nav nav-pills">
+                    <li ng-class="{ active:panel.isSelected(1)}">
+                        <a href ng-click="panel.selectTab(1)">Benefits</a>
+                    </li>
+                    <li ng-class="{ active:panel.isSelected(2)}">
+                        <a href ng-click="panel.selectTab(2)">Specification</a>
+                    </li>
+                    <li ng-class="{ active:panel.isSelected(3)}">
+                        <a href ng-click="panel.selectTab(3)">Reviews</a>
+                    </li>
+                </ul>
+                <div class="panel" ng-show="panel.isSelected(1)">
+                    <h4>Benefits</h4>
+                    <p>{{product.benefits}}</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(2)">
+                    <h4>Specifiction</h4>
+                    <blokquote>None yet</blokquote>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(3)">
+                    <h4>Reviews</h4>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b> Stars: {{review.stars}}</b>
+                        {{review.body}}
+                        <cite>by: {{review.author}}</cite>
+                        <div ng-init="avatar = gravatarUrl(review.author)">
+                            <img ng-src="{{avatar}}" />
+                        </div>
+                    </blockquote>
+                    <form name="reviewForm" ng-controller="ReviewController" ng-submit="reviewForm.$valid && reviewCtrl.addReveiew(product)" novalidate>
+                        <fieldset>
+                            <legend>Submit a Review</legend>
+                            <blockquote>
+                                <b> Stars: {{review.stars}}</b>
+                                {{review.body}}
+                                <cite>by: {{review.author}}</cite>
+                            </blockquote>
+                            <div class="form-group" ng-class="{'has-error' : reviewForm.rating.$invalid && reveiwForm.rating.$dirty }">
+                                <label>Select:</label>
+                                <select ng-model="review.starts" required>
+                                    <option value="1">1 star</option>
+                                    <option value="2">2 star</option>
+                                    <option value="3">3 star</option>
+                                    <option value="4">4 star</option>
+                                    <option value="5">5 star</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Comments:</label>
+                                <textarea ng-model="review.body" required></textarea>
+                            </div>
+                            <label>By:</label>
+                            <input ng-model="review.author" type="email" required />
+                            <div> reveiwForm is {{reviewForm.$valid}} </div>
+                            <input type="submit" value="Submit" />
+                        </fieldset>
+                    </form>
+                </div>
+                <button ng-show="product.canPurchase" class="btn btn-primary">Add to cart</button>
+            </section>
+        </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+                            <div class="panel-heading"><h1><img src="images/BearhugLogo.jpg" alt="BearhugLogo"></h1></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button"><h2>PRODUCTS</h2></button>
+
+        <video id="BearhugClip" src="../video/BearhugClip.mp4">
+            Your browser does not support the video tag.
+        </video>
+
+</body>
+<footer>   
+</footer>
+</html>
