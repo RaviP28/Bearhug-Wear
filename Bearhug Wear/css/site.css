@@ -1,14 +1,24 @@
-body{
-    background-image: url("../images/BearhugBackground.jpg");
-    background-size: 100%;
+h1{
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 5px 5px lightgray;
 }
-.button {
-    background-color: #555555;
+
+h2{
+    text-align: center;
+}
+h3{
+    font-size: 40px;
+    background-color: lightgray;
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
+    text-decoration: underline;
     display: inline-block;
-    font-size: 16px;
+    border-radius: 5px;
+}
+
+h4{
+    font-size: 25px;
 }
