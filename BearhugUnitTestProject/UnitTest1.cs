@@ -9,8 +9,8 @@ namespace BearhugUnitTestProject
         [TestMethod]
         public void IndexText()
         {
-            ValuesController controller = new ValuesController();
-            var result = controller
+            //ValuesController controller = new ValuesController();
+            //var result = controller
         }
     }
 }

@@ -229,7 +229,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\site.css" />
-    <Content Include="Data\Products.js" />
+    <None Include="Data\Products.json" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -249,7 +249,6 @@
     <Content Include="images\Pullover1.jpg" />
     <Content Include="images\Pullover2.jpg" />
     <Content Include="images\Pullover3.jpg" />
-    <Content Include="index.html" />
     <Content Include="jquery-3.1.0.js" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -274,7 +273,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Data\Products.json" />
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap.css.map" />
@@ -333,7 +331,7 @@
     <Content Include="Views\index.cshtml" />
     <Content Include="Views\Account\RegisterComplete.cshtml" />
     <Content Include="Views\Account\RegistrationConfirm.cshtml" />
-    <Content Include="Services\Products-service.json" />
+    <Content Include="Services\Products-service.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

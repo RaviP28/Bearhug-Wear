@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -15,6 +17,7 @@ namespace WebApp.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public ActionResult Register(RegistrationModel model)
         {
             if(ModelState.IsValid)
@@ -28,9 +31,13 @@ namespace WebApp.Controllers
         }
 
         public ActionResult Login()
-            RegistrationModel model - new RegistrationModel();
+        {
+            RegistrationModel model = new RegistrationModel();
 
-        string apikey = ConfimationManger.AppSettings["SendGrid.Key"];
+            string apikey = ConfigurationManager.AppSettings["SendGrid.Key"];
+
+            return View(model);
+        }
         
     }
 }
